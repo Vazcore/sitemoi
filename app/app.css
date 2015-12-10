@@ -1,0 +1,68 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+.page .overlay--init,body{height:100%;background-color:#fff}.page,.page .overlay--init,body{background-color:#fff}html{min-height:100%;position:relative}body{font-size:14px;margin:0;padding:0}.page{position:absolute;top:0;bottom:0;left:0;right:0;overflow:hidden}.page .overlay--init{background-position:top right;background-repeat:no-repeat;-webkit-animation-name:page_fliping;-webkit-animation-duration:1s;animation-name:page_fliping;animation-duration:1s}@-webkit-keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe}}@keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe}}
+
+#overlay_text{
+  background-repeat:no-repeat;
+  -webkit-animation-name:text_fliping;
+  -webkit-animation-duration:3s;
+  animation-name:text_fliping;
+  animation-duration:3s;  
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -450px;
+  margin-top: -100px;
+  z-index: 1000;
+  width: 900px;
+  height: 200px;
+  background-color: transparent;  
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  font-size: 60px;
+}
+
+#overlay_text.stoped{
+  background-image: url(images/start_text_2.jpg);
+}
+
+@-webkit-keyframes text_fliping{
+  from {background-image: url(images/start_text_1.jpg)},
+  to {background-image: url(images/start_text_2.jpg)}
+}
+
+keyframes text_fliping{
+  from {background-image: url(images/start_text_1.jpg)},
+  to {background-image: url(images/start_text_2.jpg)}
+}
