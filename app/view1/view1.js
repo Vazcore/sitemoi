@@ -17,11 +17,21 @@ angular.module('myApp.view1', ['ngRoute', 'ngAnimate'])
 		var text = document.getElementById("overlay_text");
 		var pr = $animate.animate(overlay, {}, {'background-color':'#babcbe'});		
 				
-		var onTextStoped = function(){
+		
+		setTimeout(function(){
 			var text = document.getElementById("overlay_text");
-			$animate.addClass(text, "stoped");
-			$scope.text_stoped = true;
-		};		
+			text.className += " show";
+		}, 1200);
+
+		var onStaySpan = function(element){
+			element.css({'color':'white', 'text-shadow':'0'});
+			$("#overlay_text").addClass("smooth_blur");
+		};
+
+		var span = $("#overlay_text span");
+		span.on('oanimationend animationend webkitAnimationEnd', function(){
+			onStaySpan($(this));			
+		});
 		
 	};	
 	

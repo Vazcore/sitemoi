@@ -29,40 +29,119 @@
   padding: 0;
 }
 
-.page .overlay--init,body{height:100%;background-color:#fff}.page,.page .overlay--init,body{background-color:#fff}html{min-height:100%;position:relative}body{font-size:14px;margin:0;padding:0}.page{position:absolute;top:0;bottom:0;left:0;right:0;overflow:hidden}.page .overlay--init{background-position:top right;background-repeat:no-repeat;-webkit-animation-name:page_fliping;-webkit-animation-duration:1s;animation-name:page_fliping;animation-duration:1s}@-webkit-keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe}}@keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe}}
+.page .overlay--init,body{height:100%;background-color:#fff}.page,.page .overlay--init,body{background-color:#fff}html{min-height:100%;position:relative}body{font-size:14px;margin:0;padding:0}.page{position:absolute;top:0;bottom:0;left:0;right:0;overflow:hidden}
+.page .overlay--init{background-position:top right;background-repeat:no-repeat;-webkit-animation-name:page_fliping;-webkit-animation-duration:1s;animation-name:page_fliping;animation-duration:1s}
+@-webkit-keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe, opacity:0.1;}}
+@keyframes page_fliping{from{background-image:url(images/start_bg_1.jpg)}to{background-image:url(images/start_bg_2.jpg);background-color:#bebebe, opacity:0.1;}}
 
 #overlay_text{
-  background-repeat:no-repeat;
-  -webkit-animation-name:text_fliping;
-  -webkit-animation-duration:3s;
-  animation-name:text_fliping;
-  animation-duration:3s;  
-  -webkit-animation-delay: 1s;
-  animation-delay: 1s;
+  background-repeat:no-repeat;  
+  -webkit-animation: text_fliping 2s 1s  1;
+  animation: text_fliping 2s 1s  1;
   position: absolute;
   top: 50%;
-  left: 50%;
-  margin-left: -450px;
-  margin-top: -100px;
+  left: 0%;  
   z-index: 1000;
-  width: 900px;
-  height: 200px;
+  width: 100%;
+  height: 100px;
+  margin-top: -70px;
+  text-align: center;
   background-color: transparent;  
   color: transparent;
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+  text-shadow: 0 0 10px rgba(250,250,250,0.5);
+  font-size: 70px;  
+  opacity: 0;  
+  -webkit-transition: text-shadow 1s 1s;
+  transition: text-shadow 1s 1s;
+  -webkit-transition: color 1s 1s;
+  transition: color 1s 1s;
+}
+
+#overlay_text i{
   font-size: 60px;
 }
 
-#overlay_text.stoped{
-  background-image: url(images/start_text_2.jpg);
+#overlay_text i:nth-child(5){
+  font-weight: bold;
+}
+
+#overlay_text.show{
+  opacity: 1;
+  text-shadow: 0;
+  color: white;
 }
 
 @-webkit-keyframes text_fliping{
-  from {background-image: url(images/start_text_1.jpg)},
-  to {background-image: url(images/start_text_2.jpg)}
+  from {opacity: 0;text-shadow: 0 0 10px rgba(250,250,250,0.5);},
+  to {opacity: 1 ;text-shadow: 0; color: white;}
 }
 
 keyframes text_fliping{
-  from {background-image: url(images/start_text_1.jpg)},
-  to {background-image: url(images/start_text_2.jpg)}
+  from {opacity: 0;text-shadow: 0 0 10px rgba(250,250,250,0.5);},
+  to {opacity: 1 ;text-shadow: 0; color: white;}
+}
+
+#overlay_text span:nth-of-type(1)  { -webkit-animation: blackblur_uno 3s 0.1s 1;}
+#overlay_text span:nth-of-type(2)  { -webkit-animation: blackblur_dos 3s 0.5s 1;}
+#overlay_text span:nth-of-type(3)  { -webkit-animation: blackblur_tres 3s 1s 1;}
+
+@-webkit-keyframes blackblur_uno {
+  
+  0% {
+    text-shadow: 0 0 72px white; color: transparent
+  }
+
+  100% {
+    text-shadow: 0;              color: white;
+  }
+}
+
+@-webkit-keyframes blackblur_dos {
+  0% {
+    text-shadow: 0 0 72px white; color: transparent
+  }
+
+  100% {
+    text-shadow: 0;              color: white;
+  }
+}
+
+@-webkit-keyframes blackblur_tres {
+  0% {
+    text-shadow: 0 0 72px white; color: transparent
+  }
+
+  100% {
+    text-shadow: 0;              color: white;
+  }
+}
+
+keyframes blackblur_uno{
+  from { text-shadow: 0 0 72px white; color: transparent; }
+  to   { text-shadow: 0;              color: white;       }
+}
+
+keyframes blackblur_dos{
+  from { text-shadow: 0 0 72px white; color: transparent; }
+  to   { text-shadow: 0;              color: white;       }
+}
+
+.link--next{
+  position: absolute;
+  width: 6%;
+  height: 40%;
+  right: 20%;
+  top: 150px;
+  border: 2px solid #999; 
+  cursor: pointer; 
+}
+
+.link--next i{
+  position: absolute;
+  font-size: 25px !important;
+  top: 50%;
+  margin-top: -12px;
+  right: 10px;
+  color:#999; 
+  
 }
